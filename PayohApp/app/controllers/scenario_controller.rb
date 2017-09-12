@@ -14,7 +14,7 @@ class ScenarioController < ApplicationController
 		@payerWallet = "Ruby-Payer-" + SecureRandom.uuid
 		@reqRegisterPayerWallet = {
 			:wallet 			=> @payerWallet,
-			:clientMail 		=> @payerWallet + "@lemonway.com",
+			:clientMail 		=> @payerWallet + "@payoh.me",
 			:clientFirstName 	=> "Payer",
 			:clientLastName 	=> "Payer"
 		}
@@ -32,7 +32,7 @@ class ScenarioController < ApplicationController
 		@receiverWallet = "Ruby-Receiver-" + SecureRandom.uuid
 		@reqRegisterReceiverWallet = {
 			:wallet 			=> @receiverWallet,
-			:clientMail 		=> @receiverWallet + "@lemonway.com",
+			:clientMail 		=> @receiverWallet + "@payoh.me",
 			:clientFirstName 	=> "Receiver",
 			:clientLastName 	=> "Receiver"
 		}
@@ -41,7 +41,7 @@ class ScenarioController < ApplicationController
 
 		# GetWalletDetails with email
 		@reqGetWalletDetailsReceiverWallet = {
-			:email => @receiverWallet + "@lemonway.com"
+			:email => @receiverWallet + "@payoh.me"
 		}
 		@rawGetWalletDetailsReceiverWallet 		= getWalletDetails(@reqGetWalletDetailsReceiverWallet)
 		@resultGetWalletDetailsReceiverWallet	= handleResponse(@rawGetWalletDetailsReceiverWallet, "WALLET").html_safe
@@ -49,7 +49,7 @@ class ScenarioController < ApplicationController
 		# Update email for Receiver Wallet
 		@reqUpdateWalletDetails = {
 			:wallet 	=> @receiverWallet,
-			:newEmail 	=> "new-" + @receiverWallet + "@lemonway.com"
+			:newEmail 	=> "new-" + @receiverWallet + "@payoh.me"
 		}
 		@rawUpdateWalletDetails 	= updateWalletDetails(@reqUpdateWalletDetails)
 		@resultUpdateWalletDetails	= handleResponse(@rawUpdateWalletDetails, "WALLET").html_safe
